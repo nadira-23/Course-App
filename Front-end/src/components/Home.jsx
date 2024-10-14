@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Button,Card,CardActions,CardContent,CardMedia,Grid2,Typography} from '@mui/material'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 //  const [rows,setRows]=useState[{
   const Home = () => {
@@ -20,6 +21,14 @@ useEffect(()=>{
         window.location.reload();
       })
     }
+
+    const navigate=useNavigate()
+    function updateCourse(course){
+      navigate('/add',{state:{course}})
+    }
+    
+
+    
     
 //  const rows=[{
 
@@ -109,7 +118,7 @@ useEffect(()=>{
                  <Typography variant="body2" color="text.secondary">
                     <b>Course Fee: </b> {row.courseFee} 
                  </Typography> <br/>
-                 <Typography> <Button color="secondary"> UPDATE </Button>  </Typography><br/>
+                 <Typography> <Button onClick={()=>{updateCourse(row)}} color="secondary"> UPDATE </Button>  </Typography><br/>
                  <Typography><Button onClick={()=>{deleteCourse(row._id)}} variant="outlined" color="error">DELETE</Button></Typography>
               </CardContent>
             </Card>

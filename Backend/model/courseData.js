@@ -10,3 +10,4 @@ courseFee:Number
 })
 const courseData=mongoose.model('coursedata',courseSchema);
 module.exports=courseData;
+//export default courseData
